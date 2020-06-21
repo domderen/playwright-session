@@ -1,6 +1,6 @@
 # Playwright-Session
 
-[Playwright-Session UI](https://debugger.hotdata.co/) visualizes a recorded Playwright session in a UI containing:
+[Playwright-Session UI](https://playwright-session.hotdata.co/) visualizes a recorded Playwright session in a UI containing:
 
 - Video from the session, 
 - DOM HTML Viewer,
