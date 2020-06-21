@@ -1,5 +1,7 @@
 # Playwright-Session
 
+![Build & Publish](https://github.com/domderen/playwright-session/workflows/Build%20&%20Publish/badge.svg?branch=master)
+
 [Playwright-Session UI](https://playwright-session.hotdata.co/) visualizes a recorded Playwright session in a UI containing:
 
 - Video from the session,
