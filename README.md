@@ -2,14 +2,13 @@
 
 [Playwright-Session UI](https://playwright-session.hotdata.co/) visualizes a recorded Playwright session in a UI containing:
 
-- Video from the session, 
+- Video from the session,
 - DOM HTML Viewer,
 - Network Requests Viewer,
 - Console Viewer,
 - Playwright actions listed in console view to easily understand what your script was doing,
 
 ![Playwright-Session in action](https://playwright-session.hotdata.co/Playwright-Session-UI-Small.gif)
-
 
 ## Recording Session
 
@@ -22,23 +21,23 @@ npm install playwright-session --save-dev
 Once you have the package installed, you need to initialize your playwright script with the recorder:
 
 ```javascript
-import { chromium } from 'playwright';
-import initializeRecorder from 'playwright-session';
+import { chromium } from "playwright";
+import initializeRecorder from "playwright-session";
 
 (async () => {
   const browser = await chromium.launch();
-  
+
   // Recorder is initalizing required events collection,
   // to later be able to replay a Playwright session in the UI.
   // Session file, that can be loaded in the UI,
   // will be saved to ./vuetify-session-events.ldjson
   const { page, context } = await initializeRecorder(
     browser,
-    'vuetify-session-events'
+    "vuetify-session-events"
   );
 
-  await page.goto('https://vuetifyjs.com/en/');
-  
+  await page.goto("https://vuetifyjs.com/en/");
+
   await page.evaluate(() => console.log("Adding sample console log 1"));
   await page.evaluate(() => console.warn("Adding sample console log 2"));
   await page.evaluate(() => console.info("Adding sample console log 3"));
@@ -57,19 +56,19 @@ import initializeRecorder from 'playwright-session';
 
   const inputs = await page.$$('#usage .v-example input[type="text"]');
 
-  await page.click('#usage h2');
+  await page.click("#usage h2");
 
   // Adding timeouts here, to show down Playwright,
   // and make recorded session a bit smoother.
-  await new Promise(r => setTimeout(r, 1000));
+  await new Promise((r) => setTimeout(r, 1000));
 
   await inputs[0].fill("Welcome");
-  await new Promise(r => setTimeout(r, 500));
+  await new Promise((r) => setTimeout(r, 500));
   await inputs[1].fill("To");
-  await new Promise(r => setTimeout(r, 500));
+  await new Promise((r) => setTimeout(r, 500));
   await inputs[2].fill("Playwright-Session");
 
-  await new Promise(r => setTimeout(r, 3000));
+  await new Promise((r) => setTimeout(r, 3000));
 
   await browser.close();
 })();
@@ -95,13 +94,13 @@ export default async function initializeRecorder(
   browser: ChromiumBrowser,
   sessionFilePath: string = undefined,
   contextOpts: any = undefined
-): Promise<InitializeRecorderResponse>
+): Promise<InitializeRecorderResponse>;
 
 /**
  * Recorder is extending browser methods, and returns both page & context objects for further modifications.
  */
 type InitializeRecorderResponse = {
-  page: Page,
-  context: ChromiumBrowserContext
+  page: Page;
+  context: ChromiumBrowserContext;
 };
 ```

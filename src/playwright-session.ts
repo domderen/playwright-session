@@ -1,9 +1,9 @@
 import * as fs from "fs";
-import { ChromiumBrowser, ChromiumBrowserContext, Page } from "playwright";
+import type { ChromiumBrowser, ChromiumBrowserContext, Page } from "playwright";
 
 type InitializeRecorderResponse = {
-  page: Page,
-  context: ChromiumBrowserContext
+  page: Page;
+  context: ChromiumBrowserContext;
 };
 
 /**
@@ -91,7 +91,7 @@ export default async function initializeRecorder(
             callee
           )}, "timestamp": ${Date.now()}}\n`
         );
-  
+
         function promiseHandler(q: any) {
           const response = {
             functionName: label,
@@ -101,23 +101,23 @@ export default async function initializeRecorder(
             column,
             actionId: thisActionId,
           };
-  
+
           writer.write(
             `{"direction": "action_end", "value": ${JSON.stringify(
               response
             )}, "timestamp": ${Date.now()}}\n`
           );
-  
+
           return q;
         }
-  
+
         const result = Reflect.apply(target, origTarget, argumentsList);
-  
+
         return Promise.resolve(result).then(promiseHandler, promiseHandler);
       },
     };
   }
-  
+
   function generateObjectProxyHandler(label: string) {
     return {
       get(target: any, name: string): any {
@@ -127,7 +127,7 @@ export default async function initializeRecorder(
             generateFnProxyHandler(`${label}.${name}`, target, writer)
           );
         }
-  
+
         return target[name];
       },
     };
@@ -135,12 +135,11 @@ export default async function initializeRecorder(
 
   const newPageProxyHandler = {
     apply(target: Function, thisArg: any, argumentsList: any[]): any {
-      return Reflect.apply(target, thisArg, argumentsList)
-      .then((q: Page) => {
-        return new Proxy(q, generateObjectProxyHandler('Page'))
+      return Reflect.apply(target, thisArg, argumentsList).then((q: Page) => {
+        return new Proxy(q, generateObjectProxyHandler("Page"));
       });
-    }
-  }
+    },
+  };
 
   const page = await context.newPage();
 
