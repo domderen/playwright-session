@@ -76,7 +76,7 @@ import initializeRecorder from "playwright-session";
 
 ## Replaying Session
 
-Once you have your session file recorded, head over to the [Playwright-Session UI](https://playwright-session.hotdata.co/), upload your session file by clicking on the Upload button in the top-left corner of the UI, and play your session. You can also provide a link to your custom session file via a query string parameter like this: [https://playwright-session.hotdata.co/?session_url=/vuetify-session-events.ldjson](https://playwright-session.hotdata.co/?session_url=/vuetify-session-events.ldjson).
+Once you have your session file recorded, head over to the [Playwright-Session UI](https://playwright-session.hotdata.co/), upload your session file by clicking on the Upload button in the top-left corner of the UI, and play your session. You can also provide a link to your custom session file via a query string parameter like this: [https://playwright-session.hotdata.co/?session_url=https://playwright-session.hotdata.co/vuetify-session-events.ldjson](https://playwright-session.hotdata.co/?session_url=https://playwright-session.hotdata.co/vuetify-session-events.ldjson).
 
 ## API
 
