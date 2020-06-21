@@ -6,10 +6,31 @@
   "scripts": {
     "start": "tsc && node out/examples/vuetify-navigation.js"
   },
-  "author": "Dom Deren (@domderen)",
+  "author": "Dom Deren <domderen@hotdata.co>",
   "license": "Apache-2.0",
+  "keywords": [
+    "playwright",
+    "debugger",
+    "session",
+    "video",
+    "network",
+    "ci",
+    "remote",
+    "visual",
+    "automation"
+  ],
+  "homepage": "https://playwright-session.hotdata.co/",
+  "bugs": {
+    "url": "https://github.com/domderen/playwright-session/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/domderen/playwright-session.git"
+  },
+  "peerDependencies": {
+    "playwright": "^1.x"
+  },
   "devDependencies": {
-    "typescript": "^3.8.3",
-    "playwright": "^1.1.1"
+    "typescript": "^3.8.3"
   }
 }
