@@ -8,7 +8,7 @@
 - Console Viewer,
 - Playwright actions listed in console view to easily understand what your script was doing,
 
-![alt text](assets/playwright-session-ui.gif "Playwright-Session in action")
+![alt text](https://playwright-session.hotdata.co/playwright-session-ui.gif "Playwright-Session in action")
 
 ## Recording Session
 
@@ -22,7 +22,7 @@ Once you have the package installed, you need to initialize your playwright scri
 
 ```javascript
 import { chromium } from 'playwright';
-import initializeRecorder from '../src/playwright-session';
+import initializeRecorder from 'playwright-session';
 
 (async () => {
   const browser = await chromium.launch({headless: false});
