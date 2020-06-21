@@ -1,0 +1,17 @@
+{
+  "name": "playwright-session",
+  "version": "1.0.0",
+  "description": "",
+  "main": "out/src/playwright-session.js",
+  "scripts": {
+    "start": "tsc && node out/examples/vuetify-navigation.js"
+  },
+  "author": "Dom Deren (@domderen)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "playwright": "^1.1.1"
+  }
+}

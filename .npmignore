@@ -1,0 +1,7 @@
+src
+node_modules
+.vscode
+assets
+.gitignore
+README
+tsconfig.json
