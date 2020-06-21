@@ -8,7 +8,7 @@
 - Console Viewer,
 - Playwright actions listed in console view to easily understand what your script was doing,
 
-![Playwright-Session in action](assets/playwright-session-ui.gif)
+![Playwright-Session in action](https://playwright-session.hotdata.co/Playwright-Session-UI-720p.gif)
 
 
 ## Recording Session
@@ -26,11 +26,16 @@ import { chromium } from 'playwright';
 import initializeRecorder from 'playwright-session';
 
 (async () => {
-  const browser = await chromium.launch({headless: false});
+  const browser = await chromium.launch();
   
-  // Recorder is initalizing required events collection, to later be able to replay a Playwright session in the UI.
-  // Session file, that can be loaded in the UI, will be saved to ./vuetify-session-events.ldjson
-  const { page } = await initializeRecorder(browser, 'vuetify-session-events');
+  // Recorder is initalizing required events collection,
+  // to later be able to replay a Playwright session in the UI.
+  // Session file, that can be loaded in the UI,
+  // will be saved to ./vuetify-session-events.ldjson
+  const { page, context } = await initializeRecorder(
+    browser,
+    'vuetify-session-events'
+  );
 
   await page.goto('https://vuetifyjs.com/en/');
   
@@ -54,7 +59,8 @@ import initializeRecorder from 'playwright-session';
 
   await page.click('#usage h2');
 
-  // Adding timeouts here, to show down Playwright, and make recorded session a bit smoother.
+  // Adding timeouts here, to show down Playwright,
+  // and make recorded session a bit smoother.
   await new Promise(r => setTimeout(r, 1000));
 
   await inputs[0].fill("Welcome");
