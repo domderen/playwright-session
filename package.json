@@ -1,6 +1,6 @@
 {
   "name": "playwright-session",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Visual Debugger for Playwright automation.",
   "main": "out/src/playwright-session.js",
   "scripts": {
