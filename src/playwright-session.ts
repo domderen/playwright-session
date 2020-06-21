@@ -17,7 +17,7 @@ type InitializeRecorderResponse = {
  */
 export default async function initializeRecorder(
   browser: ChromiumBrowser,
-  sessionFilePath: string = undefined,
+  sessionFilePath?: string,
   contextOpts: any = undefined
 ): Promise<InitializeRecorderResponse> {
   let writer: fs.WriteStream;
@@ -76,8 +76,8 @@ export default async function initializeRecorder(
       apply(target: Function, thisArg: any, argumentsList: any[]) {
         const thisActionId = ++actionId;
         const stack = new Error().stack;
-        const calleePath = stack.split(" at ").slice(2)[0].trim();
-        const [url, line, column] = calleePath.split(":");
+        const calleePath = stack?.split(" at ").slice(2)[0].trim();
+        const [url, line, column] = (calleePath || "").split(":");
         const callee = {
           functionName: label,
           arguments: argumentsList,
