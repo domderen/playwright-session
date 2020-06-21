@@ -1,7 +1,7 @@
 {
   "name": "playwright-session",
   "version": "1.0.0",
-  "description": "",
+  "description": "Visual Debugger for Playwright automation.",
   "main": "out/src/playwright-session.js",
   "scripts": {
     "start": "tsc && node out/examples/vuetify-navigation.js"
