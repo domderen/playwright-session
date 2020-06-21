@@ -8,7 +8,7 @@
 - Console Viewer,
 - Playwright actions listed in console view to easily understand what your script was doing,
 
-![alt text](https://playwright-session.hotdata.co/playwright-session-ui.gif "Playwright-Session in action")
+![alt text](https://playwright-session.hotdata.co/playwright-session-ui.gif)
 
 ## Recording Session
 
