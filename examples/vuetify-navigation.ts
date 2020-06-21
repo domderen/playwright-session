@@ -2,7 +2,7 @@ import { chromium } from "playwright";
 import initializeRecorder from "../src/playwright-session";
 
 (async () => {
-  const browser = await chromium.launch({ headless: false });
+  const browser = await chromium.launch();
 
   // Recorder is initalizing required events collection, to later be able to replay a Playwright session in the UI.
   // Session file, that can be loaded in the UI, will be saved to ./vuetify-session-events.ldjson
